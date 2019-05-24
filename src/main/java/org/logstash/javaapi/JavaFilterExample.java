@@ -19,13 +19,18 @@ public class JavaFilterExample implements Filter {
     public static final PluginConfigSpec<String> SOURCE_CONFIG =
             PluginConfigSpec.stringSetting("source", "message");
 
+    public static final PluginConfigSpec<String> PARAM1_CONFIG =
+            PluginConfigSpec.stringSetting("param1", "my_default_value1");
+    
     private String id;
     private String sourceField;
+    private String param1value;
 
     public JavaFilterExample(String id, Configuration config, Context context) {
         // constructors should validate configuration options
         this.id = id;
         this.sourceField = config.get(SOURCE_CONFIG);
+        this.param1value = config.get(PARAM1_CONFIG);
     }
 
     @Override
