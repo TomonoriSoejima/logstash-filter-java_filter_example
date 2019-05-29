@@ -1,5 +1,9 @@
+
+
 package org.logstash.javaapi;
 
+
+import java.util.ArrayList;
 import co.elastic.logstash.api.Configuration;
 import co.elastic.logstash.api.Context;
 import co.elastic.logstash.api.Event;
@@ -9,6 +13,8 @@ import co.elastic.logstash.api.LogstashPlugin;
 import co.elastic.logstash.api.PluginConfigSpec;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.*;
+import java.util.List;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -45,10 +51,20 @@ public class JavaFilterExample implements Filter {
         return events;
     }
 
+
+
     @Override
     public Collection<PluginConfigSpec<?>> configSchema() {
         // should return a list of all configuration options for this plugin
-        return Collections.singletonList(PARAM1_CONFIG);
+        
+        Collection<PluginConfigSpec<?>> list = new LinkedList<PluginConfigSpec<?>>(); 
+
+        list.add(SOURCE_CONFIG);
+        list.add(PARAM1_CONFIG);
+      
+      
+        return list;
+        // return Collections.singletonList(PARAM1_CONFIG);
         // return Collections.singletonList(SOURCE_CONFIG);
     }
 
