@@ -48,7 +48,8 @@ public class JavaFilterExample implements Filter {
     @Override
     public Collection<PluginConfigSpec<?>> configSchema() {
         // should return a list of all configuration options for this plugin
-        return Collections.singletonList(SOURCE_CONFIG);
+        return Collections.singletonList(PARAM1_CONFIG);
+        // return Collections.singletonList(SOURCE_CONFIG);
     }
 
     @Override
@@ -56,3 +57,5 @@ public class JavaFilterExample implements Filter {
         return this.id;
     }
 }
+
+
